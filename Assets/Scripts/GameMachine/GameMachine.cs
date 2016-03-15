@@ -463,9 +463,11 @@ public class GameMachine : MonoBehaviour {
         //prüfe, ob die enemyQueue überhaupt noch Monster hat
         if (q.Count > 0)
         {
-            combatStateMachine.clearEnemyQueue();                                // lösche die enemyQueue ( sie wird in jedem Battle neu erstellt)
-            monsterReturnIntoCaves(); // die überlebenden Monster werden in ihre ursprüngliche Höhlenposition gebracht
+            combatStateMachine.clearEnemyQueue();  // lösche die enemyQueue ( sie wird in jedem Battle neu erstellt)
+          
         }
+
+        monsterReturnIntoCaves(); // die überlebenden Monster werden in ihre ursprüngliche Höhlenposition gebracht
 
 
     }
