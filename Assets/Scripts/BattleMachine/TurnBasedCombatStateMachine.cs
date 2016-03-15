@@ -261,7 +261,7 @@ public class TurnBasedCombatStateMachine : MonoBehaviour {
                         escapedEnemy.targetPosition = escapedEnemy.getMonsterCave().transform.position + Vector3.right*15*escapedEnemy.getCavePosition();
                      
                         // verschiebe den PlayerSprite nach rechts
-                        GameMachine.gameMachine.PlayerPosition += Vector3.right * 30f;
+                        GameMachine.gameMachine.PlayerPosition += Vector3.right * 20f;
                     }
 
 
@@ -270,14 +270,13 @@ public class TurnBasedCombatStateMachine : MonoBehaviour {
                     {
                         Monster_Behaviour deadEnemy = enemyQueue.Dequeue();              // entferne das Monster aus der Queue
                         deadEnemies.Add(deadEnemy);
-                        gainedExpCount += 30 + (int)(50 * deadEnemy.getMonsterData().getAttributeValueAtIndex(1)/ 100) ;   
+                        gainedExpCount += 30 + (int)(10 * deadEnemy.getMonsterData().getAttributeValueAtIndex(1)/ 100) ;   
                         gainedMoneyCount += 100;
                         deadEnemy.transform.Rotate(new Vector3(0.0f, 0.0f, -90.0f));     // drehe es um 90 grad
                         deadEnemy.transform.Translate(new Vector3(20.0f, 0.0f, 0.0f));   // verschiebe das Monster nach unten
                         deadEnemy.targetPosition = deadEnemy.transform.position;
-                      //  GameObject playerSprite = GameObject.Find("Player Sprite");
-                        // playerSprite.transform.Translate(new Vector3(30.0f, 0.0f, 0.0f)); // verschiebe den PlayerSprite nach rechts
-                        GameMachine.gameMachine.PlayerPosition += Vector3.right * 30f;
+                      // verschiebe den PlayerSprite nach rechts
+                        GameMachine.gameMachine.PlayerPosition += Vector3.right * 20f;
                     }
 
                     // prüfe ob noch Monster in der Queue sind und ob der Player noch lebt: Dann neue Runde

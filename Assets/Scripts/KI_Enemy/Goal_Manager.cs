@@ -282,7 +282,7 @@ public class Goal_Manager : MonoBehaviour {
             else if(activeGoals[i].CurrGoalType == Goal.GoalType.Flee)
             {
 
-                activeGoals[i].BattlePriority = monster.getMonsterData().getAttributeValueAtIndex(5) / 2 + Random.Range(0, 51); // Anxiety-Value halbieren und ein Random-Wert dazu addieren (=> Prioritäts-Wert von maxmimal 100)
+                activeGoals[i].BattlePriority = monster.getMonsterData().getAttributeValueAtIndex(5) / 2 + Random.Range(0, 31); // Anxiety-Value halbieren und ein Random-Wert dazu addieren (=> Prioritäts-Wert von maxmimal 100)
             }
 
         }

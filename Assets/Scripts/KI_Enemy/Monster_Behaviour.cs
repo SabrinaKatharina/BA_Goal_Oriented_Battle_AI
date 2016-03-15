@@ -91,6 +91,10 @@ public class Monster_Behaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         combatReadinessFactor = getCombatReadinessFactor();
+        if (Input.GetKeyDown(KeyCode.O))
+            {
+            Debug.Log("Stamina: " +(float) (getMonsterData().getAttributeValueAtIndex(0) / (float) maxStamina) + " * Angst: " + (float)(getMonsterData().getAttributeValueAtIndex(5) / 100f));
+        }
         if (!inCombat)
         {
             clock++;
@@ -365,7 +369,8 @@ public class Monster_Behaviour : MonoBehaviour {
 
     float getCombatReadinessFactor()
     {
-        return (float)(getMonsterData().getAttributeValueAtIndex(0) / maxStamina) * (float)(getMonsterData().getAttributeValueAtIndex(5) / 100f);
+        return (float)(getMonsterData().getAttributeValueAtIndex(0) / (float)maxStamina) * (float)(getMonsterData().getAttributeValueAtIndex(5) / 100f);
+       
     }
 
     void executeFindPartnerAction(){

@@ -89,7 +89,7 @@ public class GameMachine : MonoBehaviour {
         }
 
         // wechsle in den BattleState
-        if ( timer >= 80.0f || 
+        if ( timer >= 40.0f || 
             Input.GetKeyDown(KeyCode.B) && monsterList.Count != 0)
         {
             currentGameState = GameStates.BATTLE;
@@ -442,13 +442,16 @@ public class GameMachine : MonoBehaviour {
         playerSprite.GetComponent<ShowPlayerData>().deleteText();  // playerUi wird nicht mehr angezeigt, da das Sprite anschließend zerstört wird 
         Camera.main.GetComponent<CameraMovement>().inBattle = false;
         Destroy(playerSprite);
+        foreach(Monster_Behaviour monster in monsterList)
+        {
+            monster.inCombat = false;
+        }
 
         /* zerstöre alle besiegten Monster und lösche sie auch aus der monsterList */
         Queue<Monster_Behaviour> q = combatStateMachine.getEnemyQueue(); // hole die aktulle enemyQueue die alle überlebenden Monster enthält
 
         
         // zerstöre alle Monster aus der MonsterListe
-        // to-do: überlegen wegen Monster Childs
         while (combatStateMachine.DeadEnemies.Count != 0)
         {
             Monster_Behaviour monster = combatStateMachine.DeadEnemies[0];

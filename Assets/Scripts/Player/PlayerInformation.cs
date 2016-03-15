@@ -62,7 +62,7 @@ public class PlayerInformation : MonoBehaviour {
         playerExp = 0;
         nextLevelUpAmount = 10;
         maxStaminaValue = 100;
-        maxEnergyValue = 100;
+        maxEnergyValue = 150;
         stamina = maxStaminaValue;
         energy = maxEnergyValue;
         endurance = 20;
@@ -175,7 +175,7 @@ public class PlayerInformation : MonoBehaviour {
         playerLevel++;
         nextLevelUpAmount *= (int) 1.5f;
         maxStaminaValue += 5;
-        maxEnergyValue += 3;
+        maxEnergyValue += 5;
         stamina = maxStaminaValue;
         energy = maxEnergyValue;
         endurance += 2;

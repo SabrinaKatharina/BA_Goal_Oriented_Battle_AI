@@ -65,8 +65,8 @@ public class CalculateTurnScript{
         int enemyStamina = enemy.getMonsterData().getAttributeValueAtIndex(0);
         int enemyEndurance = enemy.getMonsterData().getAttributeValueAtIndex(2);
 
-        enemyStamina -= Mathf.FloorToInt(damage * (float)(1 - 0.5f * (enemyEndurance / 100.0f)));
-        Debug.Log("CalculatedEnemyDamage: " + Mathf.FloorToInt(damage * (float)(1 - 0.5f * (enemyEndurance / 100.0f))));
+        enemyStamina -= Mathf.FloorToInt(damage * (float)(1 - (enemyEndurance / 100.0f)));
+        Debug.Log("CalculatedEnemyDamage: " + Mathf.FloorToInt(damage * (float)(1 - (enemyEndurance / 100.0f))));
         enemy.updateMonsterLog("CalculatedEnemyDamage: " + Mathf.FloorToInt(damage * (float)(1 - 0.5f * (enemyEndurance / 100.0f))));
         enemy.getMonsterData().setAttributeAtIndex(0, enemyStamina);
 
@@ -80,9 +80,9 @@ public class CalculateTurnScript{
 
         // Schadensberechnung: player.Stamina -= damage * (1- 0.5 * (player.defense/100));
 
-        player.Stamina -= Mathf.FloorToInt(damage * (float)(1 - 0.5 * (player.Endurance / 100.0f)));
+        player.Stamina -= Mathf.FloorToInt(damage * (float)(1 - (player.Endurance / 100.0f)));
         //Debug.Log("CalculatedPlayerDamage: " + Mathf.FloorToInt(damage * (float)(1 - 0.5 * (player.Endurance / 100.0f))) + " PlayerEndurance " + player.Endurance);
-        enemy.updateMonsterLog("CalculatedPlayerDamage: " + Mathf.FloorToInt(damage * (float)(1 - 0.5 * (player.Endurance / 100.0f))) + " PlayerEndurance " + player.Endurance);
+        enemy.updateMonsterLog("CalculatedPlayerDamage: " + Mathf.FloorToInt(damage * (float)(1 - (player.Endurance / 100.0f))) + " PlayerEndurance " + player.Endurance);
     }
 
     bool hasElementAdvantage() {
