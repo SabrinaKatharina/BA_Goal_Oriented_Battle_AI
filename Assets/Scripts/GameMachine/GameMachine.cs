@@ -52,6 +52,15 @@ public class GameMachine : MonoBehaviour {
         set { playerSpriteTargetPosition = value; }
     }
 
+    public Vector3 PlayerSpritePosition
+    {
+        get {
+            if (playerSprite == null)
+                return new Vector3(-600f, 0f, 0f);
+            return playerSprite.transform.position;
+        }
+    }
+
     // Use this for initialization
     void Start () {
         gameMachine = this;

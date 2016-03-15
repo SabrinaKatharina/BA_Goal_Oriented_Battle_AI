@@ -221,7 +221,6 @@ public class TurnBasedCombatStateMachine : MonoBehaviour {
                         {
                             isAlreadyCalculated = false;
                             currentState = BattleStates.CALCULATE_PLAYER_WIN;
-                            System.Threading.Thread.Sleep(1000);
                            
                             break;
 
@@ -328,10 +327,11 @@ public class TurnBasedCombatStateMachine : MonoBehaviour {
                     isAlreadyCalculated = true;
                 }
                 endStateCounter += Time.deltaTime;
-                if (endStateCounter >= 4f)
+                if (endStateCounter >= 5f)
                 {
                     calculatePlayerWinScript.deleteWinText();
                     currentState = BattleStates.END;
+                    
                     endStateCounter = 0f;
                     chosenAbility = null;
                 }

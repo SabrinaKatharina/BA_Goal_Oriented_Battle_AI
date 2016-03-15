@@ -18,7 +18,7 @@ public class ShowPlayerData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ui.transform.position = Camera.main.WorldToScreenPoint(new Vector3(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform.position.x - 20f, - 110f, -3f));
+        ui.transform.position = Camera.main.WorldToScreenPoint(GameMachine.gameMachine.PlayerSpritePosition + Vector3.left*20 + Vector3.down*25);
         showData();
     }
 
